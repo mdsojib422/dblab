@@ -89,6 +89,42 @@ class DB {
         }
 
     }
+    public function updateStudent($post){
+        $id = isset( $post['id'] ) ? $post['id'] : '';
+        $name = isset( $post['name'] ) ? $post['name'] : '';
+        $email = isset( $post['email'] ) ? $post['email'] : '';
+        $phone = isset( $post['name'] ) ? $post['phone'] : '';
+        $city = isset( $post['city'] ) ? $post['city'] : '';
+        $gender = isset( $post['gender'] ) ? $post['gender'] : '';
+        $sql = "UPDATE students SET `name`='$name',`email`='$email',`phone`='$phone',`city`='$city',gender = '$gender' WHERE id=$id";
+
+       if( $this->query($sql)){
+            echo json_encode( ["statusCode" => 200] );
+       }else {
+        echo "Error: " . $sql . "<br>";
+       }
+    }
+
+    public function deleteStudent($post){
+        $id = isset( $post['id'] ) ? $post['id'] : '';
+        $sql = "DELETE FROM `students` WHERE id = $id ";
+        if ( $this->query($sql)) {
+            echo $id;
+        } else {
+            echo "Error: " . $sql . "<br>" . $sql;
+        }
+    }
+
+    public function deleteSelectedStudent($post){
+        $id = isset( $post['id'] ) ? $post['id'] : '';
+        $sql = "DELETE FROM crud WHERE id in ($id)";
+        if ( $this->query($sql) ) {
+            echo $id;
+        } else {
+            echo "Error: " . $sql . "<br>" . $sql;
+        }
+      
+    }
 
     public function getStudents(){
             $sql = "SELECT * FROM students";

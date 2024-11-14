@@ -25,11 +25,13 @@ $(document).on('click', '.update', function (e) {
 	var email = $(this).attr("data-email");
 	var phone = $(this).attr("data-phone");
 	var city = $(this).attr("data-city");
+	var gender = $(this).attr("data-gender");
 	$('#id_u').val(id);
 	$('#name_u').val(name);
 	$('#email_u').val(email);
 	$('#phone_u').val(phone);
 	$('#city_u').val(city);
+	$('#gender_u').val(gender);
 });
 
 $(document).on('click', '#update', function (e) {
@@ -37,7 +39,7 @@ $(document).on('click', '#update', function (e) {
 	$.ajax({
 		data: data,
 		type: "post",
-		url: "backend/save.php",
+		url: "includes/save.php",
 		success: function (dataResult) {
 			var dataResult = JSON.parse(dataResult);
 			if (dataResult.statusCode == 200) {
@@ -61,7 +63,7 @@ $(document).on("click", ".delete", function () {
 
 $(document).on("click", "#delete", function () {
 	$.ajax({
-		url: "backend/save.php",
+		url: "includes/save.php",
 		type: "POST",
 		cache: false,
 		data: {
@@ -91,7 +93,7 @@ $(document).on("click", "#delete_multiple", function () {
 			console.log(selected_values);
 			$.ajax({
 				type: "POST",
-				url: "backend/save.php",
+				url: "includes/save.php",
 				cache: false,
 				data: {
 					type: 4,

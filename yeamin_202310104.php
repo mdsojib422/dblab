@@ -77,6 +77,7 @@ include 'includes/db.php';
 							data-email="<?php echo $student["email"]; ?>"
 							data-phone="<?php echo $student["phone"]; ?>"
 							data-city="<?php echo $student["city"]; ?>"
+							data-gender="<?php echo $student["gender"]; ?>"
 							title="Edit">&#xE254;</i>
 						</a>
 						<a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $student["id"]; ?>" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
@@ -98,7 +99,7 @@ include 'includes/db.php';
 			<div class="modal-content">
 				<form id="user_form">
 					<div class="modal-header">
-						<h4 class="modal-title">Add User</h4>
+						<h4 class="modal-title">Add Student</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
@@ -120,7 +121,7 @@ include 'includes/db.php';
 						</div>
 						<div class="form-group">
 							<label for="gender">Gender:</label>
-							<select id="gender" name="gender" class="form-control" required>
+							<select id="gender" name="gender" val class="form-control" required>
 								<option value="">Select Gender</option>
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
@@ -143,7 +144,7 @@ include 'includes/db.php';
 			<div class="modal-content">
 				<form id="update_form">
 					<div class="modal-header">
-						<h4 class="modal-title">Edit User</h4>
+						<h4 class="modal-title">Edit Student</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
@@ -167,7 +168,7 @@ include 'includes/db.php';
 
 						<div class="form-group">
 							<label for="gender">Gender:</label>
-							<select id="gender" name="gender" class="form-control" required>
+							<select id="gender_u" name="gender" class="form-control" required>
 								<option value="">Select Gender</option>
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
@@ -191,7 +192,7 @@ include 'includes/db.php';
 				<form>
 
 					<div class="modal-header">
-						<h4 class="modal-title">Delete User</h4>
+						<h4 class="modal-title">Delete Student</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
